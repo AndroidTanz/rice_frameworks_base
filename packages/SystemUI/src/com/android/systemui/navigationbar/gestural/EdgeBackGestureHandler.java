@@ -292,6 +292,10 @@ public class EdgeBackGestureHandler extends CurrentUserTracker
 
                     // Notify FalsingManager that an intentional gesture has occurred.
                     // TODO(b/186519446): use a different method than isFalseTouch
+
+                    if (mEdgeHapticEnabled) {
+                        vibrateBack(true /* Click */);
+                    }
                     mFalsingManager.isFalseTouch(BACK_GESTURE);
                     boolean sendDown = sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK,
                             isLongPress ? KeyEvent.FLAG_LONG_SWIPE : 0);
@@ -503,6 +507,12 @@ public class EdgeBackGestureHandler extends CurrentUserTracker
 
     public void setBlockedGesturalNavigation(boolean blocked) {
         mBlockedGesturalNavigation = blocked;
+    }
+
+    private void vibrateBack(boolean light) {
+            AsyncTask.execute(() ->
+                    mVibrator.vibrate(VibrationEffect.get(light ? VibrationEffect.EFFECT_CLICK :
+                        VibrationEffect.EFFECT_HEAVY_CLICK, true  /* fallback */)));
     }
 
     private void disposeInputChannel() {

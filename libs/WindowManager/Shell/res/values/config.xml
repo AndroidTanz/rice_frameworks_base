@@ -56,7 +56,7 @@
     <fraction name="config_one_handed_offset">40%</fraction>
 
     <!-- Allow one handed to enable round corner -->
-    <bool name="config_one_handed_enable_round_corner">true</bool>
+    <bool name="config_one_handed_enable_round_corner">false</bool>
 
     <!-- Bounds [left top right bottom] on screen for picture-in-picture (PIP) windows,
      when the PIP menu is shown in center. -->

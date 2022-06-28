@@ -679,4 +679,8 @@
     <string-array name="config_keyguard_statusbar_icon_blocklist" translatable="false">
         <item>@*android:string/status_bar_call_strength</item>
     </string-array>
+
+    <!-- If true, recorder will use AVCLevel42 for encoding-->
+    <bool name="config_screenrecord_codec_profile_avc42">true</bool>
+
 </resources>

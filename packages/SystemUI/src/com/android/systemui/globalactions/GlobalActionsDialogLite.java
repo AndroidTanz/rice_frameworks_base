@@ -149,6 +149,7 @@ import com.android.systemui.util.settings.SecureSettings;
 
 import lineageos.app.LineageGlobalActions;
 import lineageos.providers.LineageSettings;
+import com.android.internal.util.crdroid.Utils;
 
 import org.lineageos.internal.util.PowerMenuUtils;
 
@@ -1141,7 +1142,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
 
         @Override
         public void onPress() {
-            Process.killProcess(Process.myPid());
+            Utils.showSysUIRestartDialog(getContext());
         }
     }
     
